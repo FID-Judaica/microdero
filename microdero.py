@@ -95,7 +95,7 @@ def start_server(profile_path, derom_function, *args, **kwargs):
 
     *args and **kwargs are passed on to aiohttp.web.run_app()
     """
-    myserver = Server(profile_path, deromanize.front_mid_end_decode)
+    myserver = Server(profile_path, derom_function)
     myserver.run(*args, **kwargs)
 
 
