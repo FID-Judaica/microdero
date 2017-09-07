@@ -44,6 +44,13 @@ class Server:
         self.routes()
 
     def routes(self):
+        """aiohttp routes defined here. Override this method if you wish to use
+        custom routes.
+        Default routes:
+
+            self.app.router.add_get('/{word}', self.simple)
+            self.app.router.add_post('/', self.post)
+        """
         self.app.router.add_get('/{word}', self.simple)
         self.app.router.add_post('/', self.post)
 
@@ -87,7 +94,8 @@ class Server:
         return web.Response(text=dump(responce))
 
 
-def start_server(profile_path, derom_function, *args, **kwargs):
+def start_server(profile_path, derom_function, *args,
+                 auto_reload=False, **kwargs):
     """
     - profile_path: yaml profile for a key generator.
     - derom_function: function that takes a KeyGenerator and a word as
@@ -97,13 +105,3 @@ def start_server(profile_path, derom_function, *args, **kwargs):
     """
     myserver = Server(profile_path, derom_function)
     myserver.run(*args, **kwargs)
-
-
-def main():
-    import sys
-    config_file = sys.argv[1]
-    start_server(config_file, deromanize.front_mid_end_decode)
-
-
-if __name__ == '__main__':
-    main()
