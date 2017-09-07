@@ -13,5 +13,6 @@ setup(
     packages=['microdero'],
     install_requires=[
         'deromanize',
-        'aiohttp',],
+        'aiohttp',
+        'PyYaml'],
 )
