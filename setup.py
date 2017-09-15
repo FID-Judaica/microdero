@@ -1,4 +1,3 @@
-import fastentrypoints
 from setuptools import setup
 
 setup(
@@ -8,7 +7,7 @@ setup(
     license='MLP 2.0/EUPL 1.1',
     author_email='a.christianson@ub.uni-frankfurt.de',
     url='https://github.com/FID-Judaica/microdero.py',
-    description='deromanize as a ReSTful microservice',
+    description='deromanize as a microservice',
     # long_description=open('README.rst').read(),
     packages=['microdero'],
     install_requires=[
